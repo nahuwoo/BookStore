@@ -1,29 +1,87 @@
+<?php
+    require_once('../model/book_model.php');
+    $books = getAllBooks();
+    $action = "";
+    if(isset($_REQUEST['action'])){
+        $action = $_REQUEST['action'];
+    }
+?>
+
 <html>
     <head>
-        <title>View Users</title>
+        <title>Book Management</title>
         <link rel="stylesheet" href="../asset/css/style.css">
     </head>
+
     <body>
-        <form action="" method="post" enctype="multipart/form-data">
-        <h2 style="text-align:center;">Add/Update Book</h2>    
-        Title: <input type="text" name="title" ><br><br>
-        Author: <input type="text" name="author" ><br><br>
-        Description: <br>
-        <textarea name="description" ></textarea><br><br>
-        Price: <input type="number" name="price" step="0.01" min="0.01" ><br><br>
+        <a href="?action=add">Add</a>
+        <a href="?action=edit_del">Edit/Delete</a>
 
-        Category: <select name="category" >
-                    <option value="">Select Category</option>
-                    <option value="Fiction">Fiction</option>
-                    <option value="Science">Science</option>
-                    <option value="History">History</option>
-                    <option value="Technology">Technology</option>
-                </select><br><br>
-        Stock Quantity: <input type="number" name="stock" min="0"><br><br>
-        Book Image (format: jpeg, png):<input type="file" name="image" accept=".jpg,.jpeg,.png" ><br><br>
+        <?php   if($action == "add"){  ?>
 
+            <form action="check_book_registration.php" method="post" enctype="multipart/form-data" onsubmit="return validateBookForm()">            
+            <h2 style="text-align:center;">Add/Update Book</h2>    
+            Title: <input type="text" name="title" id='title'><br><br>
+            Author: <input type="text" name="author" id='author'><br><br>
+            Description: <br>
+            <textarea name="description" id="description" ></textarea><br><br>
+            Price: <input type="number" name="price"  id='price' ><br><br>
 
-        <input type="submit" name="submit" value="Add Book">
-</form>
+            Category: <select name="category"  id='category'>
+                        <option value="1">Poetry</option>
+                        <option value="2">Novel</option>
+                        <option value="3">Drama</option>
+                        <option value="4">History</option>
+                        <option value="5">Science</option>
+                    </select><br><br>
+            Stock Quantity: <input type="number" name="stock" id='stock'><br><br>
+            Book Image (format: jpeg, png):<input type="file" name="book_image" id='book_image' ><br><br>
+
+            <input type="submit" name="submit" value="Add Book">
+            <div id="error"></div>
+
+            </form>
+
+        <?php }else if($action == "edit_del"){ ?>
+
+            <h2>View Books</h2>
+
+        <table border="1">
+            <tr>
+                <th>Book ID</th>
+                <th>Title</th>
+                <th>Author</th>
+                <th>Description</th>
+                <th>Price</th>
+                <th>Category</th>
+                <th>Stock</th>
+                <th>Action</th>
+            </tr>
+
+            <?php
+                foreach($books as $book){
+            ?>
+
+            <tr>
+                <td><?php echo $book['id']; ?></td>
+                <td><?php echo $book['title']; ?></td>
+                <td><?php echo $book['author']; ?></td>
+                <td><?php echo $book['description']; ?></td>
+                <td><?php echo $book['price']; ?></td>
+                <td><?php echo $book['category_name']; ?></td>
+                <td><?php echo $book['stock']; ?></td>
+                <td>
+                    <a href="book_edit_form.php?id=<?=$book['id']?>">Edit</a>
+                    <a href="../controller/book_delete.php?id=<?=$book['id']?>">Delete</a>
+                </td>
+            </tr>
+
+            <?php }  ?>
+
+        </table>
+        <?php } ?>
+
+        
+        <script src='../controller/js/script.js'></script> 
     </body>
 </html>

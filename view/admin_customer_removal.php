@@ -34,7 +34,7 @@
             <td><?php echo $customer['address']; ?></td>
             <td><?php echo $customer['phone']; ?></td>
             <td><?php echo $customer['created_at']; ?></td>
-            <td><a href='../controller/delete_user.php?id=<?= $customer['id']?>'>Delete</a></td>
+            <td><a href='../controller/user_delete.php?id=<?= $customer['id']?>'>Delete</a></td>
         </tr>
 
         <?php

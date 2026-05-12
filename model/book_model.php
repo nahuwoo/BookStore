@@ -3,7 +3,7 @@
 
 function getAllBooks() {
     $con = getConnection();
-    $sql = "SELECT b.*, c.name AS category_name  FROM books b JOIN categories c ON b.category_id = c.id ORDER BY b.id DESC";
+    $sql = "SELECT b.*, c.name AS category_name  FROM books b JOIN categories c ON b.category_id = c.id ORDER BY b.id ";
     $result = mysqli_query($con, $sql);
     $books = [];
     while ($row = mysqli_fetch_assoc($result)) {
