@@ -40,4 +40,16 @@
         $row=mysqli_fetch_assoc($result);
         return $row['total_books'];
     }
+
+    function getBook($id){
+        $con = getConnection();
+        $sql = "SELECT * FROM books WHERE id=?";
+        $stmt = mysqli_prepare($con, $sql);
+        mysqli_stmt_bind_param($stmt, "i", $id);
+        mysqli_stmt_execute($stmt);
+        $result = mysqli_stmt_get_result($stmt);
+        
+        $book = mysqli_fetch_assoc($result);
+        return $book;
+    }
 ?>

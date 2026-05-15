@@ -43,7 +43,7 @@
         move_uploaded_file($book_image_src, $book_image_dest);
     }
     
-    if($book_image_size>2048)
+    if($book_image_size> 2*1024*1024)
         $errors[] = "Picture should be less than 2 MB";
     }
 
