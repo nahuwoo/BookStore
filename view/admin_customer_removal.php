@@ -1,10 +1,10 @@
 <?php
-    require_once('../model/customer_model.php');
+    require_once('../model/user_model.php');
     $customers = getAllCustomers();
 ?>
 <html>
 <head>
-    <title>View customers</title>
+    <title>Manage Customers</title>
     <link rel="stylesheet" href="../asset/css/style.css">
 </head>
 <body>

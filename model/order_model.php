@@ -11,5 +11,18 @@
     }
     return $orders;
 }
-
+    function getTotalOrders(){
+        $con=getConnection();
+        $sql="SELECT COUNT(*) AS total_orders FROM orders";
+        $result=mysqli_query($con,$sql);
+        $row=mysqli_fetch_assoc($result);
+        return $row['total_orders'];
+    }
+    function getTotalRevenue(){
+        $con=getConnection();
+        $sql="SELECT IFNULL(SUM(total_amount),0) AS total_revenue FROM orders";
+        $result=mysqli_query($con,$sql);
+        $row=mysqli_fetch_assoc($result);
+        return $row['total_revenue'];
+    }
 ?>

@@ -13,7 +13,7 @@
 
 <html>
 <head>
-    <title>Edit</title>
+    <title>Edit Form</title>
     <link rel="stylesheet" href="../asset/css/style.css">
 
 </head>

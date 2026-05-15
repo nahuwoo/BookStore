@@ -33,4 +33,11 @@
         mysqli_stmt_bind_param($stmt,"i",$id);
         return mysqli_stmt_execute($stmt);
     }
+    function getTotalBooks(){
+        $con=getConnection();
+        $sql="SELECT COUNT(*) AS total_books FROM books";
+        $result=mysqli_query($con,$sql);
+        $row=mysqli_fetch_assoc($result);
+        return $row['total_books'];
+    }
 ?>

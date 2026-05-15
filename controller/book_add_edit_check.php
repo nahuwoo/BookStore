@@ -33,14 +33,18 @@
     $book_image = $_FILES['book_image'];
     $book_image_name = $book_image['name'];
     $book_image_type= $book_image['type'];
+    $book_image_size= $book_image['size'];
     $book_image_src= $book_image['tmp_name'];
-    $book_image_dest= "../asset/uploads/book_images/" . $book_image_name;
+    $book_image_dest= "../asset/uploads/books/" . $book_image_name;
 
     if($book_image_type!='image/jpg' && $book_image_type!='image/jpeg' && $book_image_type!='image/png'){
         $errors[] = "Only JPEG and PNG allowed";
     } else {
         move_uploaded_file($book_image_src, $book_image_dest);
     }
+    
+    if($book_image_size>2048)
+        $errors[] = "Picture should be less than 2 MB";
     }
 
     if(count($errors) > 0){

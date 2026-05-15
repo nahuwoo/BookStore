@@ -4,7 +4,7 @@
 ?>
 <html>
 <head>
-    <title>View Orders</title>
+    <title>View Users</title>
     <link rel="stylesheet" href="../asset/css/style.css">
 </head>
 <body>

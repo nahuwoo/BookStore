@@ -10,5 +10,11 @@
     }
     return $orders;
 }
-
+    function getTotalCustomers(){
+        $con=getConnection();
+        $sql="SELECT COUNT(*) AS total_customers FROM users WHERE role='customer'";
+        $result=mysqli_query($con,$sql);
+        $row=mysqli_fetch_assoc($result);
+        return $row['total_customers'];
+    }
 ?>
