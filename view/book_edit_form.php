@@ -18,7 +18,7 @@
 
 </head>
 <body>
-    <form action="../controller/book_edit.php" method="post" enctype="multipart/form-data" id='edit_form'>
+    <form action="../controller/book_add_edit_check.php" method="post" enctype="multipart/form-data" id='edit_form' >
         <h2 style="text-align:center;">Add/Update Book</h2>  
         Book ID: <input type="text" name="id" readonly value="<?=$book['id']?>"><br><br>
         Title: <input type="text" name="title" value="<?=$book['title']?>"><br><br>

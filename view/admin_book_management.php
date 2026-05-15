@@ -19,7 +19,7 @@
 
         <?php   if($action == "add"){  ?>
 
-            <form action="check_book_registration.php" method="post" enctype="multipart/form-data" onsubmit="return validateBookForm()">            
+            <form action="../controller/book_add_edit_check.php" method="post" enctype="multipart/form-data" onsubmit="return validateBookForm()">            
             <h2 style="text-align:center;">Add/Update Book</h2>    
             Title: <input type="text" name="title" id='title'><br><br>
             Author: <input type="text" name="author" id='author'><br><br>
@@ -80,8 +80,7 @@
 
         </table>
         <?php } ?>
-
         
-        <script src='../controller/js/script.js'></script> 
+        <script src='../asset/js/script.js'></script> 
     </body>
 </html>
