@@ -25,10 +25,10 @@
         ?>
 
         <tr>
-            <td><?php echo $user['name']; ?></td>
-            <td><?php echo $user['email']; ?></td>
-            <td><?php echo $user['role']; ?></td>
-            <td><?php echo $user['created_at']; ?></td>
+            <td><?= htmlspecialchars($user['name'], ENT_QUOTES, 'UTF-8') ?></td>
+            <td><?= htmlspecialchars($user['email'], ENT_QUOTES, 'UTF-8') ?></td>
+            <td><?= htmlspecialchars($user['role'], ENT_QUOTES, 'UTF-8') ?></td>
+            <td><?= htmlspecialchars($user['created_at'], ENT_QUOTES, 'UTF-8') ?></td>
         </tr>
 
         <?php

@@ -27,12 +27,12 @@
         ?>
 
         <tr>
-            <td><?php echo $order['name']; ?></td>
-            <td><?php echo $order['title']; ?></td>
-            <td><?php echo $order['total_amount']; ?></td>
-            <td><?php echo $order['status']; ?></td>
-            <td><?php echo $order['payment_method']; ?></td>
-            <td><?php echo $order['order_date']; ?></td>
+            <td><?= htmlspecialchars($order['name'], ENT_QUOTES, 'UTF-8') ?></td>
+            <td><?= htmlspecialchars($order['title'], ENT_QUOTES, 'UTF-8') ?></td>
+            <td><?= htmlspecialchars($order['total_amount'], ENT_QUOTES, 'UTF-8') ?></td>
+            <td><?= htmlspecialchars($order['status'], ENT_QUOTES, 'UTF-8') ?></td>
+            <td><?= htmlspecialchars($order['payment_method'], ENT_QUOTES, 'UTF-8') ?></td>
+            <td><?= htmlspecialchars($order['order_date'], ENT_QUOTES, 'UTF-8') ?></td>
         </tr>
 
         <?php

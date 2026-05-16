@@ -28,13 +28,12 @@
         ?>
 
         <tr>
-            <td><?php echo $customer['id']; ?></td>
-            <td><?php echo $customer['name']; ?></td>
-            <td><?php echo $customer['email']; ?></td>
-            <td><?php echo $customer['address']; ?></td>
-            <td><?php echo $customer['phone']; ?></td>
-            <td><?php echo $customer['created_at']; ?></td>
-            <td><a href='../controller/user_delete.php?id=<?= $customer['id']?>'>Delete</a></td>
+            <td><?= htmlspecialchars($customer['name'], ENT_QUOTES, 'UTF-8') ?></td>
+            <td><?= htmlspecialchars($customer['email'], ENT_QUOTES, 'UTF-8') ?></td>
+            <td><?= htmlspecialchars($customer['address'], ENT_QUOTES, 'UTF-8') ?></td>
+            <td><?= htmlspecialchars($customer['phone'], ENT_QUOTES, 'UTF-8') ?></td>
+            <td><?= htmlspecialchars($customer['created_at'], ENT_QUOTES, 'UTF-8') ?></td>
+            <td><a href='../controller/user_delete.php?id=<?= htmlspecialchars($customer['id'], ENT_QUOTES, 'UTF-8') ?>'></td>
         </tr>
 
         <?php

@@ -63,13 +63,12 @@
             ?>
 
             <tr>
-                <td><?php echo $book['id']; ?></td>
-                <td><?php echo $book['title']; ?></td>
-                <td><?php echo $book['author']; ?></td>
-                <td><?php echo $book['description']; ?></td>
-                <td><?php echo $book['price']; ?></td>
-                <td><?php echo $book['category_name']; ?></td>
-                <td><?php echo $book['stock']; ?></td>
+                <td><?= htmlspecialchars($book['title'], ENT_QUOTES, 'UTF-8') ?></td>
+                <td><?= htmlspecialchars($book['author'], ENT_QUOTES, 'UTF-8') ?></td>
+                <td><?= htmlspecialchars($book['description'], ENT_QUOTES, 'UTF-8') ?></td>
+                <td><?= htmlspecialchars($book['price'], ENT_QUOTES, 'UTF-8') ?></td>
+                <td><?= htmlspecialchars($book['category_name'], ENT_QUOTES, 'UTF-8') ?></td>
+                <td><?= htmlspecialchars($book['stock'], ENT_QUOTES, 'UTF-8') ?></td>
                 <td>
                     <a href="book_edit_form.php?id=<?=$book['id']?>">Edit</a>
                     <a href="../controller/book_delete.php?id=<?=$book['id']?>">Delete</a>
