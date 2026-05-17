@@ -12,12 +12,6 @@ if(!$book){
     die('Book Not Found');
 }
 
-
-/* 
-AJAX Add to Cart add later
-
-*/
-
 ?>
 
 <html>
@@ -39,5 +33,39 @@ Quantity:
 <button onclick="addToCart(<?php echo $book['id']; ?>)">
     Add To Cart
 </button>
+
+<p id="message"></p>
+
+<script>
+
+function addToCart(bookId) {
+
+    let quantity = document.getElementById('quantity').value;
+    let message = document.getElementById('message');
+
+    if(quantity <= 0){
+        alert('Invalid Quantity');
+        return;
+    }
+
+    let xhr = new XMLHttpRequest();
+    xhr.open("POST", "../api/add_to_cart.php", true);
+    xhr.setRequestHeader("Content-Type", "application/json");
+
+    xhr.onreadystatechange = function () {
+        if (xhr.readyState === 4 && xhr.status === 200) {
+            let result = JSON.parse(xhr.responseText);
+            message.innerHTML = result.message;
+        }
+    };
+
+    let data = JSON.stringify({
+        book_id: bookId,
+        quantity: quantity
+    });
+    xhr.send(data);
+}
+
+</script>
 </body>
 </html>
