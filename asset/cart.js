@@ -1,4 +1,6 @@
-
+function validateQty(qty) {
+    return Number(qty) > 0;
+}
 function addToCart(id) {
     let qty = document.getElementById("qty").value;
     if (!validateQty(qty)) {
