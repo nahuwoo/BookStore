@@ -18,12 +18,13 @@ if (isset($_POST['ajax_update'])) {
 
     header('Content-Type: application/json');
 
-    $order_id = $_POST['order_id'];
+    // Bug fix: cast to integer to ensure clean input
+    $order_id = intval($_POST['order_id']);
     $status = $_POST['status'];
 
     $allowedStatus = ["pending", "confirmed", "shipped", "delivered"];
 
-    if ($order_id == "" || $status == "") {
+    if ($order_id <= 0 || $status == "") {
         echo json_encode(["success" => false, "message" => "Order ID and status required!"]);
         exit();
     }
@@ -44,7 +45,14 @@ if (isset($_POST['ajax_update'])) {
     exit();
 }
 
-$orders = getAllOrders();
+$rawOrders = getAllOrders();
+
+// Bug fix: build nested orders+items structure in the controller so the view receives ready-to-render data and never calls model functions
+$orders = [];
+foreach ($rawOrders as $order) {
+    $order['items'] = getAdminOrderItems($order['id']);
+    $orders[] = $order;
+}
 
 require_once('../views/admin_orders.php');
 
