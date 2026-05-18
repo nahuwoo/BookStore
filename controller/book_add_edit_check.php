@@ -8,8 +8,7 @@
         exit;
 
     }
-
-    $id = $_REQUEST['id'];
+    $form_type = $_REQUEST['form_type']?? '';
     $title = trim($_REQUEST['title']);
     $author = trim($_REQUEST['author']);
     $description = trim($_REQUEST['description']);
@@ -54,9 +53,11 @@
         }
     }
 
-    if($id){
+    if($form_type=='edit_del'){
+        $id = $_REQUEST['id'];
         updateBook($id, $title, $author, $description, $price, $category_id, $stock, $book_image_dest);
-    }else{
+    }
+    else{
         createBook($title, $author, $description, $price, $category_id, $stock, $book_image_dest);
     }
 

@@ -19,7 +19,7 @@
 
         <?php   if($action == "add"){  ?>
 
-            <form action="../controller/book_add_edit_check.php" method="post" enctype="multipart/form-data" onsubmit="return validateBookForm()">            
+            <form action="../controller/book_add_edit_check.php" method="post" enctype="multipart/form-data" >            
             <h2 style="text-align:center;">Add/Update Book</h2>    
             Title: <input type="text" name="title" id='title'><br><br>
             Author: <input type="text" name="author" id='author'><br><br>
@@ -38,6 +38,7 @@
             Book Image (format: jpeg, png):<input type="file" name="book_image" id='book_image' ><br><br>
 
             <input type="submit" name="submit" value="Add Book">
+            <input type="hidden" name="form_type" value="add">
             <div id="error"></div>
 
             </form>
@@ -80,6 +81,6 @@
         </table>
         <?php } ?>
         
-        <script src='../asset/js/script.js'></script> 
+        <script src='../asset/js/book_management_validation.js'></script> 
     </body>
 </html>

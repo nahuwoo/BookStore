@@ -35,6 +35,9 @@
                 </select><br><br>
         Stock Quantity: <input type="number" name="stock" value="<?= htmlspecialchars($book['stock'], ENT_QUOTES, 'UTF-8') ?>"><br><br>
         <input type="submit" name="submit" value="Edit Book">
+        <input type="hidden" name="form_type" value="edit_del">
+        <div id="error"></div>
     </form>
+    <script src='../asset/js/book_management_validation.js'></script> 
 </body>
 </html>
