@@ -1,0 +1,95 @@
+body {
+    font-family: Arial, sans-serif;
+    background: #f4f4f4;
+    margin: 0;
+    padding: 0;
+}
+
+.container {
+    width: 85%;
+    margin: 30px auto;
+}
+
+h2, h3 {
+    color: #222;
+}
+
+.card {
+    background: white;
+    padding: 18px;
+    margin-bottom: 18px;
+    border: 1px solid #ddd;
+    border-radius: 6px;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 12px;
+}
+
+table, th, td {
+    border: 1px solid #ccc;
+}
+
+th {
+    background: #eee;
+}
+
+th, td {
+    padding: 10px;
+    text-align: left;
+}
+
+label {
+    display: block;
+    margin-top: 12px;
+    font-weight: bold;
+}
+
+textarea, select {
+    width: 100%;
+    padding: 9px;
+    margin-top: 6px;
+    box-sizing: border-box;
+}
+
+.btn {
+    display: inline-block;
+    background: #333;
+    color: white;
+    padding: 9px 14px;
+    border: none;
+    text-decoration: none;
+    cursor: pointer;
+    margin-top: 12px;
+    border-radius: 4px;
+}
+
+.secondary {
+    background: #666;
+}
+
+.error {
+    color: red;
+    font-weight: bold;
+}
+
+.success {
+    color: green;
+    font-weight: bold;
+}
+
+@media screen and (max-width: 700px) {
+    .container {
+        width: 95%;
+    }
+
+    table {
+        font-size: 13px;
+    }
+
+    th, td {
+        padding: 6px;
+    }
+}
