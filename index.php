@@ -5,7 +5,6 @@ require_once __DIR__ . '/config/Database.php';
 require_once __DIR__ . '/models/Catalog.php';
 require_once __DIR__ . '/controllers/AuthController.php';
 require_once __DIR__ . '/controllers/AdminController.php';
-require_once __DIR__ . '/controllers/CartController.php';
 require_once __DIR__ . '/controllers/OrderController.php';
 
 $action = isset($_GET['action']) ? $_GET['action'] : 'home';
@@ -34,17 +33,7 @@ switch ($action) {
     case 'admin_menu': (new AdminController())->manageMenu(); break;
     case 'api/menu-items/toggle': (new AdminController())->toggleAvailability(); break;
 
-    // CUSTOMER CART
-    case 'browse': (new CartController())->browse(); break;
-    case 'cart': (new CartController())->viewCart(); break;
-    case 'checkout': (new CartController())->checkout(); break;
-    case 'api/cart/add': (new CartController())->addToCart(); break;
-    case 'api/cart/update': (new CartController())->updateCart(); break;
-    case 'api/cart/remove': (new CartController())->removeCart(); break;
-    case 'api/menu-items/search': (new CartController())->apiSearch(); break;
-    case 'confirmation':
-        include 'views/customer/confirmation.php';
-        break;
+    
 
     // ORDER MANAGEMENT
     case 'my_orders': (new OrderController())->myOrders(); break;
