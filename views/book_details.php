@@ -1,6 +1,7 @@
 <?php
 
 session_start();
+require_once('header.php');
 require_once('../models/Book.php');
 
 if(!isset($_GET['id'])){

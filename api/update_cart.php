@@ -2,7 +2,6 @@
 session_start();
 
 header('Content-Type: application/json');
-
 require_once('../config/db.php');
 require_once('../models/Cart.php');
 
@@ -13,7 +12,6 @@ if(!isset($_SESSION['user_id'])) {
     ]);
     exit;
 }
-
 $data = json_decode(file_get_contents("php://input"), true);
 
 if(!$data) {
@@ -25,7 +23,6 @@ if(!$data) {
 }
 
 $user_id = $_SESSION['user_id'];
-
 $book_id = intval($data['book_id'] ?? 0);
 $qty = intval($data['quantity'] ?? 0);
 
@@ -38,9 +35,7 @@ if($book_id <= 0 || $qty <= 0) {
 }
 
 $con = getConnection();
-
 $sql = "SELECT stock FROM books WHERE id=$book_id";
-
 $res = mysqli_query($con, $sql);
 
 if(!$res) {
@@ -50,9 +45,7 @@ if(!$res) {
     ]);
     exit;
 }
-
 $book = mysqli_fetch_assoc($res);
-
 if(!$book) {
     echo json_encode([
         'success'=>false,
@@ -70,7 +63,6 @@ if($qty > $book['stock']) {
 }
 
 updateCart($user_id, $book_id, $qty);
-
 $count = mysqli_fetch_assoc(mysqli_query(
     $con,
     "SELECT SUM(quantity) as total FROM cart WHERE user_id='$user_id'"

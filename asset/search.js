@@ -1,4 +1,5 @@
 function searchBooks() {
+
     let q = document.getElementById("searchInput").value;
     let filter = document.getElementById("filter").value;
 

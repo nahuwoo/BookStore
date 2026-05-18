@@ -1,3 +1,7 @@
 function validateQty(qty) {
-    return Number(qty) > 0;
+    qty = Number(qty);
+    return (
+        Number.isInteger(qty) &&
+        qty > 0
+    );
 }
