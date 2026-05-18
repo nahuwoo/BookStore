@@ -3,7 +3,7 @@
     $dbuser = "root";
     $dbname = "bookstore";
     $dbpass = "";
-
+    
     function getConnection(){
         global $host, $dbuser, $dbname, $dbpass;
         $con = mysqli_connect($host, $dbuser, $dbpass, $dbname);
