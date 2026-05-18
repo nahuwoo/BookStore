@@ -31,26 +31,6 @@ class Catalog {
         return $stmt->fetch(PDO::FETCH_ASSOC);
     }
 
-    public function getBooks($categoryId = null) {
-        $sql = "SELECT b.id, b.title, b.author, b.price, b.short_description, b.cover_image, b.category_id, c.name AS category_name
-                FROM books b
-                LEFT JOIN categories c ON c.id = b.category_id";
-
-        $params = [];
-
-        if ($categoryId !== null && $categoryId !== '') {
-            $sql .= " WHERE b.category_id = :category_id";
-            $params[':category_id'] = (int) $categoryId;
-        }
-
-        $sql .= " ORDER BY b.created_at DESC, b.id DESC";
-
-        $stmt = $this->conn->prepare($sql);
-        foreach ($params as $key => $value) {
-            $stmt->bindValue($key, $value, PDO::PARAM_INT);
-        }
-        $stmt->execute();
-        return $stmt->fetchAll(PDO::FETCH_ASSOC);
-    }
+   
 }
 ?>

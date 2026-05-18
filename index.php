@@ -5,7 +5,6 @@ require_once __DIR__ . '/config/Database.php';
 require_once __DIR__ . '/models/Catalog.php';
 require_once __DIR__ . '/controllers/AuthController.php';
 require_once __DIR__ . '/controllers/AdminController.php';
-require_once __DIR__ . '/controllers/OrderController.php';
 
 $action = isset($_GET['action']) ? $_GET['action'] : 'home';
 
@@ -35,12 +34,7 @@ switch ($action) {
 
     
 
-    // ORDER MANAGEMENT
-    case 'my_orders': (new OrderController())->myOrders(); break;
-    case 'admin_orders': (new OrderController())->adminQueue(); break;
-    case 'api/orders/status': (new OrderController())->apiStatus(); break;
-    case 'api/orders/update': (new OrderController())->updateStatus(); break;
-    case 'api/orders/cancel': (new OrderController())->cancelOrder(); break;
+  
 
     // DEFAULT REDIRECT
     default:
