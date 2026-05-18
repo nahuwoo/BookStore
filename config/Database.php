@@ -1,7 +1,7 @@
 <?php
 class Database {
     private $host = "localhost";
-    private $db_name = "food_ordering";
+    private $db_name = "bookstore";
     private $username = "root";
     private $password = "";
     public $conn;
