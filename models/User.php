@@ -28,7 +28,7 @@ class User {
             $stmt->execute();
             return true;
         } catch (PDOException $e) {
-            return false;
+            return "Database error: " . $e->getMessage();
         }
     }
 
