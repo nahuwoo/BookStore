@@ -70,6 +70,19 @@ function createOrderItem($order_id, $book_id, $quantity, $unit_price)
     return mysqli_stmt_execute($stmt);
 }
 
+// Bug 3 fix: reduce book stock after a successful order
+function reduceStock($book_id, $quantity)
+{
+    $conn = getConnection();
+
+    $sql = "UPDATE books SET stock = stock - ? WHERE id = ? AND stock >= ?";
+
+    $stmt = mysqli_prepare($conn, $sql);
+    mysqli_stmt_bind_param($stmt, "iii", $quantity, $book_id, $quantity);
+
+    return mysqli_stmt_execute($stmt);
+}
+
 function createPayment($order_id, $amount, $payment_method, $transaction_id)
 {
     $conn = getConnection();
