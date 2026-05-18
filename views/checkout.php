@@ -57,7 +57,12 @@
         <div class="card">
             <h3>Confirm Checkout</h3>
 
-            <form method="POST" action="../controllers/CheckoutController.php" onsubmit="return validateCheckout()">
+            <p id="checkoutMessage"></p>
+
+            <form id="checkoutForm">
+
+                <!-- CSRF token hidden field -->
+                <input type="hidden" name="csrf_token" id="csrf_token" value="<?php echo htmlspecialchars($csrf_token); ?>">
 
                 <label>Confirm Address</label>
                 <textarea name="address" id="address" rows="4" placeholder="Enter delivery address"></textarea>
@@ -74,7 +79,7 @@
                 </select>
                 <p id="paymentError" class="error"></p>
 
-                <input type="submit" name="place_order" value="Place Order" class="btn">
+                <button type="button" class="btn" onclick="if (validateCheckout()) return placeOrder()">Place Order</button>
 
             </form>
         </div>
