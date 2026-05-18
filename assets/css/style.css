@@ -60,3 +60,39 @@
 h2{
     text-align:center;
 }
+
+.topbar{
+    display: flex;
+    justify-content: space-between;
+    background: black;
+    padding: 15px;
+}
+
+.topbar a{
+    background: none;
+    border: none;
+    color: white;
+}
+
+.layout{
+    display: flex;
+}
+
+.sidebar{
+    width: 150px;
+    background: #eee;
+    padding: 15px;
+}
+
+.sidebar a{
+    display: block;
+    margin-bottom: 10px;
+    background: none;
+    border: none;
+    color: black;
+}
+
+.content{
+    flex: 1;
+    padding: 15px;
+}

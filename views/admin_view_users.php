@@ -1,15 +1,16 @@
 <?php
-    require_once('../model/user_model.php');
+    require_once('../config/admin_gate.php');
+    require_once('../models/user_model.php');
     $users = getAllUsers();
 ?>
 <html>
 <head>
-    <title>View Users</title>
-    <link rel="stylesheet" href="../asset/css/style.css">
+    <title>views Users</title>
+    <link rel="stylesheet" href="../assets/css/style.css">
 </head>
 <body>
     <!-- <input type ='button' action='admin_dashboard.php' value='back'> -->
-    <h2>View Users</h2>
+    <h2>views Users</h2>
 
     <table border="1">
 

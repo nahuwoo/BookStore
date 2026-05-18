@@ -1,6 +1,6 @@
-<?php       
-    require_once('../model/book_model.php');
-    session_start();
+<?php
+    require_once('../config/admin_gate.php');
+    require_once('../models/book_model.php');
     $books = getAllBooks();
     $id = $_REQUEST['id'];
     $book = [];
@@ -14,11 +14,11 @@
 <html>
 <head>
     <title>Edit Form</title>
-    <link rel="stylesheet" href="../asset/css/style.css">
+    <link rel="stylesheet" href="../assets/css/style.css">
 
 </head>
 <body>
-    <form action="../controller/book_add_edit_check.php" method="post" enctype="multipart/form-data" id='edit_form' >
+    <form action="../controllers/book_add_edit_check.php" method="post" enctype="multipart/form-data" id='edit_form' onsubmit="return validateBookForm()">
         <h2 style="text-align:center;">Add/Update Book</h2>  
         Book ID: <input type="text" name="id" readonly value="<?= htmlspecialchars($book['id'], ENT_QUOTES, 'UTF-8') ?>"><br><br>
         Title: <input type="text" name="title" value="<?= htmlspecialchars($book['title'], ENT_QUOTES, 'UTF-8') ?>"><br><br>
@@ -38,6 +38,6 @@
         <input type="hidden" name="form_type" value="edit_del">
         <div id="error"></div>
     </form>
-    <script src='../asset/js/book_management_validation.js'></script> 
+    <script src='../assets/js/book_management_validation.js'></script> 
 </body>
 </html>

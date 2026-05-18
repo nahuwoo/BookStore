@@ -1,5 +1,6 @@
 <?php
-    require_once('../model/book_model.php');
+    require_once('../config/admin_gate.php');
+    require_once('../models/book_model.php');
     $books = getAllBooks();
     $action = "";
     if(isset($_REQUEST['action'])){
@@ -10,16 +11,26 @@
 <html>
     <head>
         <title>Book Management</title>
-        <link rel="stylesheet" href="../asset/css/style.css">
+        <link rel="stylesheet" href="../assets/css/style.css">
     </head>
 
     <body>
-        <a href="?action=add">Add</a>
-        <a href="?action=edit_del">Edit/Delete</a>
+        <div class="topbar">
+            <a href="admin_dashboard.php">Home</a>
+            <a href="../controllers/logout.php">Logout</a>
+        </div>
+
+        <div class="layout">
+            <div class="sidebar">
+                <a href="?action=add">Add</a>
+                <a href="?action=edit_del">Edit</a>
+            </div>
+
+            <div class="content">
 
         <?php   if($action == "add"){  ?>
 
-            <form action="../controller/book_add_edit_check.php" method="post" enctype="multipart/form-data" >            
+            <form action="../controllers/book_add_edit_check.php" method="post" enctype="multipart/form-data" onsubmit="return validateBookForm()" >            
             <h2 style="text-align:center;">Add/Update Book</h2>    
             Title: <input type="text" name="title" id='title'><br><br>
             Author: <input type="text" name="author" id='author'><br><br>
@@ -45,7 +56,7 @@
 
         <?php }else if($action == "edit_del"){ ?>
 
-            <h2>View Books</h2>
+            <h2>views Books</h2>
 
         <table border="1">
             <tr>
@@ -64,6 +75,7 @@
             ?>
 
             <tr>
+                <td><?= htmlspecialchars($book['id'], ENT_QUOTES, 'UTF-8') ?></td>
                 <td><?= htmlspecialchars($book['title'], ENT_QUOTES, 'UTF-8') ?></td>
                 <td><?= htmlspecialchars($book['author'], ENT_QUOTES, 'UTF-8') ?></td>
                 <td><?= htmlspecialchars($book['description'], ENT_QUOTES, 'UTF-8') ?></td>
@@ -72,7 +84,7 @@
                 <td><?= htmlspecialchars($book['stock'], ENT_QUOTES, 'UTF-8') ?></td>
                 <td>
                     <a href="book_edit_form.php?id=<?=$book['id']?>">Edit</a>
-                    <a href="../controller/book_delete.php?id=<?=$book['id']?>">Delete</a>
+                    <a href="../controllers/book_delete.php?id=<?=$book['id']?>">Delete</a>
                 </td>
             </tr>
 
@@ -80,7 +92,10 @@
 
         </table>
         <?php } ?>
-        
-        <script src='../asset/js/book_management_validation.js'></script> 
+
+            </div>
+        </div>
+
+        <script src='../assets/js/book_management_validation.js'></script>
     </body>
 </html>

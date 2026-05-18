@@ -1,6 +1,6 @@
 <?php
-    require_once('../model/book_model.php');
-    require_once('../model/order_model.php');
+    require_once('../models/book_model.php');
+    require_once('../models/order_model.php');
     $id = $_REQUEST['id'];
     $book=getBook($id);
 
@@ -22,7 +22,7 @@
 
     if($result){
         echo "delete success";
-        header('location: ../view/admin_book_management.php?action=edit_del');
+        header('location: ../views/admin_book_management.php?action=edit_del');
     }
     else{
         echo "delete failed";

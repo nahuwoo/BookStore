@@ -1,15 +1,16 @@
 <?php
-    require_once('../model/order_model.php');
+    require_once('../config/admin_gate.php');
+    require_once('../models/order_model.php');
     $orders = getAllOrders();
 ?>
 <html>
 <head>
-    <title>View Orders</title>
-    <link rel="stylesheet" href="../asset/css/style.css">
+    <title>views Orders</title>
+    <link rel="stylesheet" href="../assets/css/style.css">
 </head>
 <body>
     <!-- <input type ='button' action='admin_dashboard.php' value='back'> -->
-    <h2>View Orders</h2>
+    <h2>views Orders</h2>
 
     <table border="1">
 

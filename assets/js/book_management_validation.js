@@ -1,5 +1,4 @@
 function validateBookForm() {
-    alert("JS running");
     let title = document.getElementById('title').value.trim();
     let author = document.getElementById('author').value.trim();
     let description = document.getElementById('description').value.trim();
@@ -9,7 +8,6 @@ function validateBookForm() {
     let image = document.getElementById('book_image').value;
     let error = document.getElementById('error');
     error.textContent = "";
-
     if(title === ""){
         error.textContent = "Title is required";
         return false;

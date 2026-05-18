@@ -1,5 +1,5 @@
 <?php
-    require_once('db.php');
+    require_once('../config/db.php');
 
     function getAllUsers() {
         $con = getConnection();
@@ -36,4 +36,6 @@
         $row=mysqli_fetch_assoc($result);
         return $row['total_customers'];
     }
+
+
 ?>

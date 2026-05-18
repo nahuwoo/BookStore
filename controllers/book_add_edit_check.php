@@ -1,10 +1,10 @@
 <?php
     
-    require_once('../model/book_model.php');
+    require_once('../models/book_model.php');
     session_start();
     
     if(!isset($_REQUEST['submit'])){
-        header('location: ../view/admin_book_management.php?action=edit_del');
+        header('location: ../views/admin_book_management.php?action=edit_del');
         exit;
 
     }
@@ -34,7 +34,7 @@
     $book_image_type= $book_image['type'];
     $book_image_size= $book_image['size'];
     $book_image_src= $book_image['tmp_name'];
-    $book_image_dest= "../asset/uploads/books/" . $book_image_name;
+    $book_image_dest= "../public/uploads/books/" . $book_image_name;
 
     if($book_image_type!='image/jpg' && $book_image_type!='image/jpeg' && $book_image_type!='image/png'){
         $errors[] = "Only JPEG and PNG allowed";
@@ -61,5 +61,5 @@
         createBook($title, $author, $description, $price, $category_id, $stock, $book_image_dest);
     }
 
-header('location: ../view/admin_book_management.php?action=edit_del');
+header('location: ../views/admin_book_management.php?action=edit_del');
 ?>
