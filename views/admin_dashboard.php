@@ -25,9 +25,9 @@
     <div class="layout">
         <div class="sidebar">
             <a href="admin_book_management.php">Book Management</a>
-            <a href="admin_view_users.php">views Users</a>
+            <a href="admin_view_users.php">View All Users</a>
             <a href="admin_customer_removal.php">Remove Customers</a>
-            <a href="admin_view_orders.php">views Orders</a>
+            <a href="admin_view_orders.php">View All Orders</a>
         </div>
 
         <div class="content">

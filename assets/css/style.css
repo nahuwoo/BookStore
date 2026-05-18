@@ -1,9 +1,8 @@
-    body{
-        font-family: Arial;
-         padding: 10px;
 
+        body{
+        font-family: Arial, Helvetica, sans-serif, Times, serif;
+        background: #f2f2f2;
     }
-
     table{
         width: 50%;
         border-collapse: collapse;
@@ -24,10 +23,7 @@
         margin: 10px;
         padding: 5px 10px;
     }
-        body{
-        font-family: Arial, Helvetica, sans-serif, Times, serif;
-        background: #f2f2f2;
-    }
+
     form{
         width: 350px;
         margin: 40px auto;
@@ -49,11 +45,12 @@
     }
 
     a{
+        display: block;
+        margin-bottom: 10px;
+        background: none;
+        border: none;
+        color: black;
         padding: 5px 20px;
-        color: white;
-        background-color: black;
-        text-decoration: none;
-        border: 1px solid palegreen;
     }
 #edit_form{
 }
@@ -80,7 +77,6 @@ h2{
 
 .sidebar{
     width: 150px;
-    background: #eee;
     padding: 15px;
 }
 

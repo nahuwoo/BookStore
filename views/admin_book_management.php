@@ -56,7 +56,7 @@
 
         <?php }else if($action == "edit_del"){ ?>
 
-            <h2>views Books</h2>
+            <h2>Books List</h2>
 
         <table border="1">
             <tr>
@@ -83,8 +83,8 @@
                 <td><?= htmlspecialchars($book['category_name'], ENT_QUOTES, 'UTF-8') ?></td>
                 <td><?= htmlspecialchars($book['stock'], ENT_QUOTES, 'UTF-8') ?></td>
                 <td>
-                    <a href="book_edit_form.php?id=<?=$book['id']?>">Edit</a>
-                    <a href="../controllers/book_delete.php?id=<?=$book['id']?>">Delete</a>
+                    <a  href="book_edit_form.php?id=<?=$book['id']?>">Edit</a>
+                    <a  href="../controllers/book_delete.php?id=<?=$book['id']?>">Delete</a>
                 </td>
             </tr>
 

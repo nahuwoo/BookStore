@@ -5,12 +5,11 @@
 ?>
 <html>
 <head>
-    <title>views Users</title>
+    <title>View Users</title>
     <link rel="stylesheet" href="../assets/css/style.css">
 </head>
 <body>
-    <!-- <input type ='button' action='admin_dashboard.php' value='back'> -->
-    <h2>views Users</h2>
+    <h2>User List</h2>
 
     <table border="1">
 
