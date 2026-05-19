@@ -1,6 +1,6 @@
 <nav>
     <div>
-        <a href="home.php">Home</a>
+        <a href="home_page.php">Home</a>
         &nbsp;|&nbsp;
         <a href="cart.php">Cart</a>
         &nbsp;|&nbsp;
