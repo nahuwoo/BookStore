@@ -1,12 +1,15 @@
 <?php
-
-function getConnection() {
-    $con = mysqli_connect("localhost", "root", "", "bookstore");
-
-    if(!$con) {
-        die("Database connection failed");
+    $host = "127.0.0.1";
+    $dbuser = "root";
+    $dbname = "bookstore";
+    $dbpass = "";
+    
+    function getConnection(){
+        global $host, $dbuser, $dbname, $dbpass;
+        $con = mysqli_connect($host, $dbuser, $dbpass, $dbname);
+        if(!$con){
+        die("Connection failed: " . mysqli_connect_error());
+        }
+        return $con;
     }
-
-    return $con;
-}
 ?>
